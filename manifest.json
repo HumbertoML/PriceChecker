@@ -1,34 +1,57 @@
 {
-    "name": "NASA picture of the day viewer",
-    "version": "0.0.0.1",
-    "manifest_version": 2,
-    "description": "_Extensión de Chromium para seguir productos en de tiendas online y visualizar sus precios a lo largo del tiempo_",
-    "icons": {
-        "16": "icons/icon_16.png",
-        "32": "icons/icon_32.png",
-        "48": "icons/icon_48.png",
-        "128": "icons/icon_128.png",
-        "400": "icons/icon_400.png"
-    },
-    "browser_action": {
-        "default_popup": "popup/popup.html"
-      },
-      "content_scripts": [
-        {
-          "matches": [
-            "<all_urls>"
-          ],
-          "js": ["lib/jquery.min.js",
-            "scripts/content.js"
-          ]
-        }
-      ],
-      "web_accessible_resources": [
-        "images/*.jpeg"
-      ],
-      "permissions":[
-        "notifications",
-        "storage",
-        "tabs"
-      ]
+  "name": "PriceChecker Alfa",
+  "version": "0.0.5",
+  "manifest_version": 2,
+  "description": "_Extensión de Chromium para seguir productos en de tiendas online y visualizar sus precios a lo largo del tiempo_",
+  "icons": {
+    "16": "icons/icon_16.png",
+    "32": "icons/icon_32.png",
+    "48": "icons/icon_48.png",
+    "128": "icons/icon_128.png",
+    "400": "icons/icon_400.png"
+  },
+  "browser_action": {
+    "default_title": "PriceChecker",
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "service_worker": "scripts/background.bundle.js"
+  },
+  "web_accessible_resources": [
+    "images/*.jpeg"
+  ],
+  "permissions": [
+    "storage",
+    "unlimitedStorage"
+  ],
+  "content_scripts": [
+    {
+        "js": [
+            "scripts/content.bundle.js",
+            "scripts/lib/jquery.min.js"
+        ],
+        "matches": [
+            "*://articulo.mercadolibre.com.ar/*",
+            "*://articulo.mercadolibre.com.ve/*",
+            "*://articulo.mercadolibre.com.bo/*",
+            "*://articulo.mercadolibre.cl/*",
+            "*://articulo.mercadolibre.com.co/*",
+            "*://articulo.mercadolibre.co.cr/*",
+            "*://articulo.mercadolibre.com.do/*",
+            "*://articulo.mercadolibre.com.ec/*",
+            "*://articulo.mercadolibre.com.gt/*",
+            "*://articulo.mercadolibre.com.hn/*",
+            "*://articulo.mercadolibre.com.mx/*",
+            "*://articulo.mercadolibre.com.ni/*",
+            "*://articulo.mercadolibre.com.pa/*",
+            "*://articulo.mercadolibre.com.py/*",
+            "*://articulo.mercadolibre.com.pe/*",
+            "*://articulo.mercadolibre.com.sv/*",
+            "*://articulo.mercadolibre.com.uy/*",
+            "*://produto.mercadolivre.com.br/*",
+            "*://anuncio.mercadolivre.pt/*"
+        ],
+        "run_at": "document_end"
+    }
+]
 }
