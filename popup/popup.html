@@ -2,37 +2,25 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PriceChecker</title>
-    <!-- Gooogle charts -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['2013',  1000,      400],
-          ['2014',  1170,      460],
-          ['2015',  660,       1120],
-          ['2016',  1030,      540]
-        ]);
-
-        var options = {
-          title: 'Company Performance',
-          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0}
-        };
-
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+    <style>
+      body {
+        width: 500px;
       }
-    </script>
+      button {
+        background-color: #336dab;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        font-size: 16px;
+      }
+    </style>
 </head>
 <body>
-    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+      <!-- Gooogle charts -->
+      <script type="text/javascript" src="../scripts/lib/jquery-3.6.0.min.js"></script>
+      <script type="text/javascript" src="../scripts/lib/loader.js"></script>
+      <h1>PriceChecker</h1>
 <script type="text/javascript" src="./popup.js"></script>
 </body>
 </html>

@@ -1,7 +1,19 @@
 {
+  "manifest_version": 3,
   "name": "PriceChecker Alfa",
   "version": "0.0.5",
-  "manifest_version": 2,
+
+  "action":{
+    "default_icon":{
+      "16": "icons/icon_16.png",
+      "32": "icons/icon_32.png",
+      "48": "icons/icon_48.png",
+      "128": "icons/icon_128.png",
+      "400": "icons/icon_400.png"
+    },
+    "default_title":"PriceChecker",
+    "default_popup":"popup/popup.html"
+  },
   "description": "_Extensión de Chromium para seguir productos en de tiendas online y visualizar sus precios a lo largo del tiempo_",
   "icons": {
     "16": "icons/icon_16.png",
@@ -10,25 +22,23 @@
     "128": "icons/icon_128.png",
     "400": "icons/icon_400.png"
   },
-  "browser_action": {
-    "default_title": "PriceChecker",
-    "default_popup": "popup/popup.html"
-  },
+
   "background": {
-    "service_worker": "scripts/background.bundle.js"
+    "minimum_chrome_version": 93,
+    "service_worker": "scripts/background.bundle.mjs",
+    "type": "module"
   },
-  "web_accessible_resources": [
-    "images/*.jpeg"
-  ],
   "permissions": [
     "storage",
-    "unlimitedStorage"
+    "unlimitedStorage",
+    "activeTab"
   ],
   "content_scripts": [
     {
         "js": [
-            "scripts/content.bundle.js",
-            "scripts/lib/jquery-3.6.0.min.js"
+            "scripts/content.bundle.mjs",
+            "scripts/lib/jquery-3.6.0.min.js",
+            "scripts/lib/loader.js"
         ],
         "matches": [
             "*://articulo.mercadolibre.com.ar/*",
