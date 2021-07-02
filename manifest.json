@@ -22,7 +22,15 @@
   "permissions": [
     "storage",
     "unlimitedStorage",
-    "activeTab"
+    "activeTab",
+    "tabs",
+    "cookies"
+  ],
+  "web_accessible_resources": [
+    "images/*.png",
+    "scripts/content.bundle.mjs",
+    "scripts/lib/jquery-3.6.0.min.js",
+    "scripts/lib/loader.js"
   ],
   "content_scripts": [
     {
