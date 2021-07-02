@@ -24,7 +24,8 @@
     "unlimitedStorage",
     "activeTab",
     "tabs",
-    "cookies"
+    "cookies",
+    "https://www.gstatic.com/charts/loader.js"
   ],
   "web_accessible_resources": [
     "images/*.png",
@@ -32,6 +33,7 @@
     "scripts/lib/jquery-3.6.0.min.js",
     "scripts/lib/loader.js"
   ],
+  "content_security_policy": "script-src 'self' https://www.gstatic.com; object-src 'self'",
   "content_scripts": [
     {
         "js": [
