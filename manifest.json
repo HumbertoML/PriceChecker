@@ -17,9 +17,7 @@
     "400": "icons/icon_400.png"
   },
   "background": {
-    "minimum_chrome_version": 93,
-    "service_worker": "scripts/background.bundle.mjs",
-    "type": "module"
+    "page": "scripts/background.bundle.mjs"
   },
   "permissions": [
     "storage",
